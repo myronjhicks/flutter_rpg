@@ -26,4 +26,16 @@ class CharacterStore extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  //save (update) character
+  Future<void> saveCharacter(Character character) async {
+    await FirestoreService.updateCharacter(character);
+    return;
+  }
+
+  void removeCharacter(Character character) async {
+    await FirestoreService.deleteCharaceter(character);
+    _characters.remove(character);
+    notifyListeners();
+  }
 }

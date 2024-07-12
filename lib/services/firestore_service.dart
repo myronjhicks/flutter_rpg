@@ -20,6 +20,17 @@ class FirestoreService {
   }
 
   //update a character
+  static Future<void> updateCharacter(Character character) async {
+    await ref.doc(character.id).update({
+      'stats': character.statsAsMap,
+      'points': character.points,
+      'skills': character.skills.map((skill) => skill.id),
+      'isFav': character.isFav,
+    });
+  }
 
   //delete a character
+  static Future<void> deleteCharaceter(Character character) async {
+    await ref.doc(character.id).delete();
+  }
 }
