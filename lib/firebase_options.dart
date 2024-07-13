@@ -63,7 +63,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '141871535099',
     projectId: 'flutter-fpg-mh',
     storageBucket: 'flutter-fpg-mh.appspot.com',
-    iosBundleId: 'com.example.flutterRpg',
+    iosBundleId: 'com.myronjhicks.flutterRpg',
   );
-
 }

@@ -35,7 +35,14 @@ class _HomeState extends State<Home> {
                 return ListView.builder(
                   itemCount: store.characters.length,
                   itemBuilder: (_, index) {
-                    return CharacterCard(store.characters[index]);
+                    return Dismissible(
+                      key: ValueKey(store.characters[index].id),
+                      onDismissed: (direction) {
+                        Provider.of<CharacterStore>(context, listen: false)
+                            .removeCharacter(store.characters[index]);
+                      },
+                      child: CharacterCard(store.characters[index]),
+                    );
                   },
                 );
               }),
